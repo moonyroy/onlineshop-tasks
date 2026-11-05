@@ -1,0 +1,29 @@
+Column,Role,Used in,Description
+CustomerID,id,all customer datasets,کلید مشتری
+LineID,id,transactions_clean,کلید یکتای هر سطر خام
+Country,context,customer datasets,کشور اصلی مشتری
+Region,context,customer datasets,DOMESTIC/EUROPE/OTHER
+tenure_group,context,customer datasets,گروه سابقه
+monetary_tier,context,customer datasets,گروه ارزش
+recency_tier,context,customer datasets,گروه تازگی
+eligible,filter,customer datasets,خرید در ۱۲۰ روز آخر مشاهده؛ جامعهٔ آموزش CART
+obs_invoices,feature,clustering + CART + anomaly,فراوانی مشاهده
+obs_spend,feature,clustering + CART + anomaly,مبلغ مشاهده
+obs_products,feature,clustering + CART + anomaly,تنوع کالا
+obs_avg_basket,feature,clustering + CART + anomaly,میانگین ارزش سبد
+obs_avg_gap,feature,CART,فاصلهٔ متوسط خرید
+obs_tenure,feature,clustering + CART,سابقهٔ مشاهده
+obs_recency,feature,clustering + CART,فاصلهٔ آخرین خرید
+cancel_rate,feature,clustering + CART + anomaly,نرخ لغو
+return_rate,feature,clustering + CART,نرخ برگشت
+is_one_time_obs,feature,CART,خرید یک‌باره
+region_europe,feature,CART,مشتری اروپایی غیربریتانیا
+obs_max_line_qty,feature,anomaly,بیشینهٔ تعداد در یک ردیف
+obs_max_invoice_value,feature,anomaly,بیشینهٔ ارزش یک فاکتور
+return_value_share,feature,anomaly,سهم ارزش برگشت از فعالیت ناخالص
+rule_*,audit,anomaly baseline,قواعد ساده؛ حقیقت زمینی نیستند
+hard_churn,label,CART,ریزش سخت
+churn_target,label,CART,برچسب نهایی ترکیبی
+churn_target_no_gap,label,CART sensitivity,ریزش نرم بدون سیگنال فاصله
+decline_flag,label component,audit only,افت نسبت به نرخ سابقهٔ خود مشتری
+gap_signal,label component,audit only,فاصلهٔ تا پایان داده > ۲ × میانهٔ فاصلهٔ مشتری

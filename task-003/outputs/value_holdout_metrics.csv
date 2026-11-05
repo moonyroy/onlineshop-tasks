@@ -1,0 +1,3 @@
+outcome,model_MAE,baseline_MAE,model_spearman,beats_baseline_MAE
+purchase_days,0.9948893981980295,1.6045061529864972,0.5060462912464607,True
+positive_revenue,663.8178080509675,878.8062047987975,0.520985331318718,True

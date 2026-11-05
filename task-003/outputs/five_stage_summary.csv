@@ -1,0 +1,6 @@
+﻿stage,metric,value,qualification
+Isolation Forest,bootstrap Jaccard@100,0.8576208607361254,ranking stability; no anomaly truth labels
+K-Means,validation silhouette,0.30228992562556317,k selected on validation; descriptive refit
+CART combined churn,test average precision,0.6197553179533141,Recency AP=0.508; same-snapshot customer test
+FP-Growth,holdout mean lift,12.978809180402017,"co-purchase, not retention effect"
+BG/NBD + Gamma-Gamma,revenue holdout MAE,663.8178080509675,both outcomes beat baseline: True

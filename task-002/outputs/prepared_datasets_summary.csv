@@ -1,0 +1,18 @@
+Dataset,Rows,Columns,Level,Key
+transactions_clean,536641,19,transaction,LineID
+anomaly_customers,3317,13,customer,CustomerID
+clustering_customers,3317,14,customer,CustomerID
+clustering_customers_scaled,3317,9,customer,CustomerID
+churn_customers,2298,25,customer,CustomerID
+online_retail_prepared,2298,25,customer,CustomerID
+cart_split_assignments,2298,2,customer,CustomerID
+dormant_customers,1019,20,customer,CustomerID
+baskets_train,306747,2,basket,InvoiceNo + StockCode
+baskets_test,210540,2,basket,InvoiceNo + StockCode
+baskets_customer_train,221075,3,basket,CustomerID + InvoiceNo + StockCode
+baskets_customer_test,165251,3,basket,CustomerID + InvoiceNo + StockCode
+basket_matrix_train,12383,50,basket,InvoiceNo (index)
+basket_matrix_test,7390,50,basket,InvoiceNo (index)
+clv_calibration,3317,7,customer,CustomerID
+clv_holdout,3317,3,customer,CustomerID
+clv_gamma_calibration,1890,7,customer,CustomerID

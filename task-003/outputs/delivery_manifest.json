@@ -1,0 +1,35 @@
+{
+  "all_customer_ids": 4372,
+  "with_positive_history": 4338,
+  "without_positive_history": 34,
+  "unknown_id_transaction_rows": 135037,
+  "historical_test_rows": 461,
+  "snapshot": "2011-12-09 12:50:00",
+  "horizon_days": 100,
+  "five_stages_executed": true,
+  "cart_test_AP": 0.6197553179533141,
+  "recency_test_AP": 0.5076437053243523,
+  "cart_beats_recency": true,
+  "value_beats_baseline_MAE_both": true,
+  "versions": {
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "scikit-learn": "1.9.1",
+    "scipy": "1.18.1",
+    "lifetimes": "0.11.3",
+    "mlxtend": "0.25.0",
+    "dill": "0.4.1",
+    "matplotlib": "3.11.2",
+    "ipykernel": "7.4.0",
+    "nbformat": "5.11.1",
+    "nbclient": "0.11.0",
+    "python": "3.14.7"
+  },
+  "caveats": [
+    "same-snapshot customer test, not temporal holdout",
+    "historical dataset previously explored",
+    "latest scores transferred to December without observed future outcomes",
+    "positive purchase value before complete cancellation matching; not profit",
+    "actions not proven causal retention effects"
+  ]
+}

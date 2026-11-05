@@ -1,0 +1,112 @@
+{
+  "source_file": "Online Retail.xlsx",
+  "observation": {
+    "start": "2010-12-01 00:00:00",
+    "end": "2011-08-31 23:59:59.999999999",
+    "days": 274
+  },
+  "performance": {
+    "start": "2011-09-01 00:00:00",
+    "end": "2011-12-09 23:59:59.999999999",
+    "days": 100,
+    "ratio": 0.36496350364963503
+  },
+  "label_parameters": {
+    "eligible_lookback_days": 120,
+    "decline_threshold": 0.6,
+    "gap_multiplier": 2.0
+  },
+  "counts": {
+    "raw_rows": 541909,
+    "deduplicated_rows": 536641,
+    "valid_sales_rows": 392692,
+    "observation_sales_rows": 224036,
+    "performance_sales_rows": 168656,
+    "observation_customers": 3317,
+    "eligible_customers": 2298,
+    "dormant_customers": 1019,
+    "new_customers_first_seen_in_performance": 1021
+  },
+  "labels_on_eligible": {
+    "hard_churn": 734,
+    "churn_target": 1136,
+    "churn_target_no_gap": 1112,
+    "decline_flag": 378,
+    "gap_signal": 238
+  },
+  "evaluation": {
+    "split_column": "split",
+    "seed": 42,
+    "method": "stratified customer split at one snapshot",
+    "clv_event": "customer calendar day"
+  },
+  "features": {
+    "anomaly": [
+      "obs_invoices",
+      "obs_spend",
+      "obs_avg_basket",
+      "obs_products",
+      "obs_max_line_qty",
+      "obs_max_invoice_value",
+      "return_value_share",
+      "cancel_rate"
+    ],
+    "clustering": [
+      "obs_invoices",
+      "obs_spend",
+      "obs_products",
+      "obs_avg_basket",
+      "obs_tenure",
+      "obs_recency",
+      "cancel_rate",
+      "return_rate"
+    ],
+    "cart": [
+      "obs_invoices",
+      "obs_spend",
+      "obs_products",
+      "obs_avg_basket",
+      "obs_avg_gap",
+      "obs_tenure",
+      "obs_recency",
+      "cancel_rate",
+      "return_rate",
+      "is_one_time_obs",
+      "region_europe"
+    ],
+    "association": [
+      "InvoiceNo",
+      "StockCode"
+    ],
+    "association_customer_linked": [
+      "CustomerID",
+      "InvoiceNo",
+      "StockCode"
+    ],
+    "clv": [
+      "frequency",
+      "recency",
+      "T",
+      "monetary_value_repeat"
+    ]
+  },
+  "dropped_features": [
+    "obs_quantity",
+    "obs_avg_items",
+    "region_domestic",
+    "region_other",
+    "cancel_invoices"
+  ],
+  "notes": [
+    "No sklearn used",
+    "No performance-window feature in CART; label-only columns carry lbl_ or perf_ prefix",
+    "CART population = eligible customers only; dormant customers are kept in a separate win-back view",
+    "gap_signal uses performance end and observed median gap; label components are excluded from features",
+    "decline_flag uses fixed ratio to observed individual daily rates; seasonality remains a limitation",
+    "Outliers kept and flagged; winsorization + log1p only for clustering",
+    "Isolation Forest view is customer level; rule flags are baselines, not ground truth",
+    "Association baskets: global view keeps invoices without CustomerID; customer-linked view supports per-segment rules",
+    "Scaled clustering file is exploratory; refit winsor caps and scaler and data-driven feature selection on training folds",
+    "Fixed customer split 60/20/20, seed 42; not a temporal out-of-time test; dataset previously explored"
+  ]
+}
